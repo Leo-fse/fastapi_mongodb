@@ -15,10 +15,10 @@ authMechanism = "SCRAM-SHA-256"
 conn = MongoClient(
     host=host,
     port=port,
-    usename=username,
+    username=username,
     password=password,
     authSource=authSource,
-    authMechamism="SCRAM-SHA-256",
+    authMechanism="SCRAM-SHA-256",
 )
 
 uri = (
