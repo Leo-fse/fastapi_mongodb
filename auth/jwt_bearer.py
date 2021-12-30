@@ -1,6 +1,8 @@
 # The function of this file is to check wheter the request is authorized or not [ Verification of the protected route]
 
 
+from typing import Optional
+
 from fastapi import HTTPException, Request
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
@@ -12,7 +14,7 @@ class jwtBearer(HTTPBearer):
         super(jwtBearer, self).__init__(auto_error=auto_Error)
 
     async def __call__(self, request: Request):
-        credentials: HTTPAuthorizationCredentials = await super(
+        credentials: Optional[HTTPAuthorizationCredentials] = await super(
             jwtBearer, self
         ).__call__(request)
         if credentials:
